@@ -1,8 +1,13 @@
 {
-  "version": 2,
-  "routes": [
-    { "src": "/style.css", "dest": "/style.css" },
-    { "src": "/app.js", "dest": "/app.js" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "headers": [
+    {
+      "source": "/css/(.*)",
+      "headers": [{ "key": "Content-Type", "value": "text/css" }]
+    },
+    {
+      "source": "/js/(.*)",
+      "headers": [{ "key": "Content-Type", "value": "application/javascript" }]
+    }
   ]
 }
